@@ -1,0 +1,11 @@
+El gradiente conjugado es una subrutina. Esta tiene como propósito dar la opción de resolver
+complejos sistemas de ecuaciones de la misma manera que lo hacen los métodos, por ejemplo, de
+gauss, gauss-seidel, etc. Este subprograma que estará recogido en el modulo sistemas consiste en
+que a través de un numero nmax de iteraciones, calculara un itinerante a partir de su anterior, con
+una dirección de descenso(v). A través de estas iteraciones, se calculara el residuo, que ira
+disminuyendo a lo largo de esta dirección de descenso. Lo primero que se calculará en cada
+iteración sera el paso(tao), con este, se calculara el nuevo itinerante y a continuación, el nuevo
+residuo(r). Cuando el residuo sea mínimo(menor que la norma de b, multiplicada por la tolerancia),
+el programa parará, y tendremos nuestro itinerante, el cual, sera la solución de nuestro sistema de
+ecuaciones. Si este no fuera el caso, y el itinerante no fuera mínimo, se calcularía un parámetro(s), a
+partir del cual hallaríamos la nueva dirección de descenso y, con esta, se repetirá el proceso.
