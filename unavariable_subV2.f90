@@ -6,6 +6,8 @@ integer :: i,j,np
 real(8),allocatable :: x(:),m(:,:),u(:),r(:)
 real(8) :: a, b,h,alpha,beta
 real(8) :: val(2),besselmatrix(2,2),coeficientes(2)
+real(8), parameter :: tolconj=1.0d-6
+integer,parameter :: iteraconj=100
 	besselmatrix(1,:)=[bessel_j0(1.0d0),bessel_y0(1.0d0)]    !Nos crea la matriz para hallar los coeficientes que resuelven
 	besselmatrix(2,:)=[bessel_j0(2.0d0),bessel_y0(2.0d0)]	 !el sistema de forma precisa con las funciones de bessel
 	val=[0,1]						 !vector resultado dado por las condiciones de contorno
@@ -21,7 +23,7 @@ real(8) :: val(2),besselmatrix(2,2),coeficientes(2)
 	call gausspivote(besselmatrix,val,coeficientes)		!resuelve el sistema que hemos creado, ya tenemos coeficientes para 
 								!aproximar nuestra funcion.
 
-	call gausspivote(m,r,u)					!Resuelve el sistema para hallar nuestra aproximacion numérica
+	call grad_conj(m,r,u,tolconj,iteraconj)			!Resuelve el sistema para hallar nuestra aproximacion numérica
 
 	print *, 'bessel en 1',bessel_j0(1.0d0),bessel_y0(1.0d0)
 	print *, 'bessel en 2',bessel_j0(2.0d0),bessel_y0(2.0d0)
