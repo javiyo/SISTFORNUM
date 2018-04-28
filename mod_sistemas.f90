@@ -30,8 +30,8 @@ contains
                 v=(-1)*r1 + (s*v) !calculo de la nueva direccion de descenso
             end do
         end subroutine grad_conj
-        function norma (v)
-                    implicit none
+        function norma (v)				!Funcion que nos hace la norma, para compatibilidad con compiladores
+                    implicit none			!pre norma 2008. (norm2() podria ser utilizado de igual manera).
                     integer:: n,i
                     real(8):: v(:), norma
                     n=size(v)
@@ -42,7 +42,7 @@ contains
                     norma=sqrt(norma)
 end function norma
 
-subroutine gausspivote(a,b,x)
+subroutine gausspivote(a,b,x)						!Gauss pivote de toda la vida
 real(8), intent(out) :: x(:)
 real(8) :: suma, f, a(:,:), b(:)
 real(8),dimension(size(b),size(b)) :: m
