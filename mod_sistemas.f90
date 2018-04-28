@@ -47,7 +47,7 @@ real(8), intent(out) :: x(:)
 real(8) :: suma, f, a(:,:), b(:)
 real(8),dimension(size(b),size(b)) :: m
 real(8),dimension(size(b)) :: h
-integer :: k,j,i,fila
+integer :: k,j,i,fila,n
 m=a
 h=b
 n=size(b)
